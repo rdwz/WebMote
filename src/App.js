@@ -1,5 +1,7 @@
 import Nav from "./components/Nav";
 import Remote from "./components/Remote";
+import Editor from "./compositions/Editor";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getActions } from "./helpers/Actions";
 
 function App() {
@@ -8,10 +10,15 @@ function App() {
       );
 
     return (
-      <div className="App">
-        <Nav />
-        <Remote items={buttons}/>
-      </div>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Routes>
+            <Route path="/remote" element={<Remote items={buttons}/>} />
+            <Route path="/editor" element={<Editor items={buttons}/>} />
+          </Routes>
+        </div>
+      </Router>
   );
 }
 
