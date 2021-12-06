@@ -1,12 +1,12 @@
-import "./remote.css";
+import "./Grid.css";
 
-function Remote(props) {
+function Grid(props) {
     //hack for having indefinite rows
     let count = props.items.length;
     let style = {rowCount: `${count}fr`};
 
     return (
-        <div className="remote" style={style}>
+        <div className="grid" style={style}>
             {
                 props.items.map(item => <>{item}</>)
             }
@@ -14,5 +14,5 @@ function Remote(props) {
     );
 }
 
-export default Remote;
+export default Grid;
 

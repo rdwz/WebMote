@@ -1,5 +1,5 @@
 
-.remote {
+.grid {
     padding: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -9,13 +9,13 @@
 }
 
 @media (min-width: 700px) {
-    .remote {
+    .grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media (min-width: 1100px) {
-    .remote {
+    .grid {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
