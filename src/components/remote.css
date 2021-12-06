@@ -1,0 +1,25 @@
+
+.remote {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(var(--row-count), min-content);
+    grid-auto-flow: row;
+    gap: 1em 1em;
+}
+
+@media (min-width: 700px) {
+    .remote {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1100px) {
+    .remote {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.remote .item {
+    
+}
