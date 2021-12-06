@@ -1,0 +1,55 @@
+[
+    {
+        "name": "openGoogle.com",
+        "title": "Google",
+        "icon": "send",
+        "templateLink": "www.{name}.com",
+        "inserts": [
+            {
+                "placeholder": "name",
+                "value": "google"
+            }
+        ]
+            
+    },
+    {
+        "name": "openGoogle.com",
+        "title": "Google",
+        "icon": "send",
+        "templateLink": "www.{name}.com",
+        "inserts": [
+            {
+                "placeholder": "name",
+                "value": "google"
+            }
+        ]
+            
+    },
+    {
+        "name": "openGoogle.com",
+        "title": "Google",
+        "icon": "send",
+        "templateLink": "www.{name}.com",
+        "inserts": [
+            {
+                "placeholder": "name",
+                "value": "google"
+            }
+        ]
+            
+    },
+    {
+        "name": "openGoogle.com",
+        "title": "Google",
+        "icon": "send",
+        "templateLink": "http://www.{name}.com",
+        "inserts": [
+            {
+                "placeholder": "name",
+                "value": "google"
+            }
+        ]
+            
+    }
+    
+]

@@ -1,14 +1,12 @@
 import Nav from "./components/Nav";
 import Remote from "./components/Remote";
+import { getActions } from "./helpers/Actions";
 
 function App() {
-    let buttons = [
-      <button className="waves-effect btn">button</button>,
-      <button className="waves-effect btn">button</button>,
-      <button className="waves-effect btn">button</button>,
-      <button className="waves-effect btn">button</button>,
-      <button className="waves-effect btn">button</button>,
-    ];
+    let buttons = getActions().map(({title, icon, link}) => 
+        <a href={link} className="btn">{title} <i className="material-icons right">{icon}</i></a>
+      );
+
     return (
       <div className="App">
         <Nav />
