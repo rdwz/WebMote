@@ -2,7 +2,7 @@
 .grid {
     padding: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(var(--starting-columns), 1fr);
     grid-template-rows: repeat(var(--row-count), min-content);
     grid-auto-flow: row;
     gap: 1em 1em;
@@ -10,12 +10,12 @@
 
 @media (min-width: 700px) {
     .grid {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(var(--starting-columns), 1fr) 1fr;
     }
 }
 
 @media (min-width: 1100px) {
     .grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(var(--starting-columns), 1fr) 1fr 1fr;
     }
 }
