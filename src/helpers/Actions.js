@@ -1,17 +1,22 @@
-import actions from "../testActions.json";
+import store from 'store';
 
-export const getActions = function() {
-    return (
-        actions.map(action => (
-            {
-                ...action,
-                link: parseLinkTemplates(action.templateLink, action.inserts)
-            }
-        ))
+// TODO add options to run different types of actions
+export const runAction = function({template, inserts}) {
+    window.open(
+        parseLinkTemplate(template, inserts),
+        "_blank"
     );
 };
 
-const parseLinkTemplates = function(template, inserts){
+export const readActionsFromStore = function(){
+    return JSON.parse(store.get('actions'));
+};
+
+export const writeActionsToStore = function(actions){
+    store.set('actions', JSON.stringify(actions));
+};
+
+const parseLinkTemplate = function(template, inserts){
     let newLink = template;
     inserts.forEach(insert => {
         let reg = new RegExp(`\{${insert.placeholder}\}`);
