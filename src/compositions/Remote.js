@@ -8,7 +8,7 @@ function Remote(props) {
         <>
             <Grid>
                 {
-                props.actions.map((action) => <ActionButton key={action.id} action={action} />)
+                props.actions && props.actions.map((action) => <ActionButton key={action.id} action={action} />)
                 }
             </Grid>
             <Link to="/editor" className="btn-floating btn-large waves-effect cyan darken-1 stick-to-bottom-right">
