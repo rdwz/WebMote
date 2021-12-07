@@ -6,6 +6,10 @@ function JsonEditor(props) {
 
     let objectText = JSON.stringify(props.object);
 
+    const deleteObject = () => {
+        props.deleteObject(props.object);
+    }
+
     const handleSubmit = (e) => {
         props.setObject(JSON.parse(textRef.current.value));
         console.log(textRef.current.value);
@@ -24,6 +28,9 @@ function JsonEditor(props) {
                         Save <i className="material-icons right">save</i>
                     </button>
                 </form>
+                <button className="btn waves-effect" onClick={deleteObject}>
+                    Delete <i className="material-icons right">delete_forever</i>
+                </button>
             </div>
         </div>
     );

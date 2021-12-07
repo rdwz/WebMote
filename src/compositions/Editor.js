@@ -21,7 +21,7 @@ function Editor(props) {
             <Grid>
                 {
                     props.actions.map(action => 
-                        <JsonEditor object={action} setObject={updateAction} />)                    
+                        <JsonEditor object={action} setObject={updateAction} deleteObject={deleteAction} />)                    
                 }
             </Grid>
             <div className="row">
