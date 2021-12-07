@@ -1,5 +1,6 @@
 import Grid from '../components/Grid';
 import JsonEditor from '../components/JsonEditor';
+import { Link } from 'react-router-dom';
 import { generateNewAction } from '../helpers/Actions';
 
 function Editor(props) {
@@ -25,12 +26,16 @@ function Editor(props) {
                 }
             </Grid>
             <div className="row">
-                <div className="col s3 offset-s9">
-                    <button onClick={createAction} className="btn waves-effect">
-                        New Action <i className="material-icons right">add_box</i>
+                <div className="col s2 offset-s5">
+                    <button onClick={createAction} className="btn-large waves-effect">
+                        New 
+                        <i className="material-icons right">add_box</i>
                     </button>
                 </div>
             </div>
+            <Link to="/remote" className="btn-floating btn-large waves-effect cyan darken-1 stick-to-bottom-right">
+                <i className="material-icons">settings_remote</i>
+            </Link>
         </>
     );
 }

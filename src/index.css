@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.stick-to-bottom-right {
+  position: fixed;
+  bottom: 0.5em;
+  right: 2em;
+}
