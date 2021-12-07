@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
-import Grid from "./components/Grid";
-import ActionButton from "./compositions/ActionButton";
+import Remote from "./compositions/Remote";
 import { readActionsFromStore, writeActionsToStore } from "./helpers/Actions";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,13 +21,7 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/remote" element={
-            <Grid>
-              {
-                actions.map((action) => <ActionButton key={action.id} action={action} />)
-              }
-            </Grid>
-          } />
+          <Route path="/remote" element={<Remote actions={actions}/>} />
           <Route path="/editor" element={<Editor actions={actions} setActions={setActions} />} />
         </Routes>
       </div>
