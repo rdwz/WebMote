@@ -1,9 +1,24 @@
 import store from 'store';
 
+let actionCount = 0;
+
+let templateAction = {
+    id: 0,
+    name: '',
+    icon: 'send',
+    templateLink: 'www.{name}.com',
+    inserts: [
+        {
+            key: 'name',
+            value: 'google'
+        }
+    ]
+}
+
 // TODO add options to run different types of actions
-export const runAction = function({template, inserts}) {
+export const runAction = function({templateLink, inserts}) {
     window.open(
-        parseLinkTemplate(template, inserts),
+        parseLinkTemplate(templateLink, inserts),
         "_blank"
     );
 };
@@ -16,6 +31,11 @@ export const writeActionsToStore = function(actions){
     store.set('actions', JSON.stringify(actions));
 };
 
+export const generateNewAction = function(){
+    actionCount++;
+    return {...templateAction, id: actionCount};
+}
+
 const parseLinkTemplate = function(template, inserts){
     let newLink = template;
     inserts.forEach(insert => {
@@ -24,3 +44,4 @@ const parseLinkTemplate = function(template, inserts){
     });
     return newLink;
 }
+
