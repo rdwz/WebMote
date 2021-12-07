@@ -1,11 +1,12 @@
 import Grid from '../components/Grid';
 import JsonEditor from '../components/JsonEditor';
 import { Link } from 'react-router-dom';
-import { generateNewAction } from '../helpers/Actions';
+import { generateNewAction, writeActionsToStore, deleteActionsFromStore} from '../helpers/Actions';
 
 function Editor(props) {
     
     const updateAction = action => {
+        writeActionsToStore([action]);
         props.setActions(props.actions.map(a => a.id == action.id ? action : a));
     }
 
@@ -14,6 +15,7 @@ function Editor(props) {
     }
 
     const deleteAction = action => {
+        deleteActionsFromStore([action.id]);
         props.setActions(props.actions.filter(a => a.id != action.id));
     }
     
@@ -21,8 +23,8 @@ function Editor(props) {
         <>
             <Grid>
                 {
-                    props.actions.map(action => 
-                        <JsonEditor object={action} setObject={updateAction} deleteObject={deleteAction} />)                    
+                    props.actions && props.actions.map(action => 
+                        (<JsonEditor key={action.id} object={action} setObject={updateAction} deleteObject={deleteAction} />))
                 }
             </Grid>
             <div className="row">
@@ -33,7 +35,7 @@ function Editor(props) {
                     </button>
                 </div>
             </div>
-            <Link to="/remote" className="btn-floating btn-large waves-effect cyan darken-1 stick-to-bottom-right">
+            <Link to="/" className="btn-floating btn-large waves-effect cyan darken-1 stick-to-bottom-right">
                 <i className="material-icons">settings_remote</i>
             </Link>
         </>
