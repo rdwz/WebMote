@@ -19,7 +19,7 @@ export const writeActionsToStore = function(actions){
 const parseLinkTemplate = function(template, inserts){
     let newLink = template;
     inserts.forEach(insert => {
-        let reg = new RegExp(`\{${insert.placeholder}\}`);
+        let reg = new RegExp(`\{${insert.key}\}`);
         newLink = newLink.replace(reg, insert.value);
     });
     return newLink;
