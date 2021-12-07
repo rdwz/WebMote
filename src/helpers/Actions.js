@@ -6,6 +6,7 @@ let templateAction = {
     id: 0,
     name: '',
     icon: 'send',
+    newWindow: true,
     templateLink: 'www.{name}.com',
     inserts: [
         {
@@ -16,10 +17,10 @@ let templateAction = {
 }
 
 // TODO add options to run different types of actions
-export const runAction = function({templateLink, inserts}) {
+export const runAction = function({templateLink, newWindow, inserts}) {
     window.open(
         parseLinkTemplate(templateLink, inserts),
-        "_blank"
+        newWindow ? '_blank' : '_top'
     );
 };
 
