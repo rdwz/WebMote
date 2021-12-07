@@ -17,21 +17,19 @@ function App() {
     writeActionsToStore(actions);
   }, [actions]);
 
-  const setSingleAction = (index, action) => {
-    let newActions = actions;
-    newActions.splice(index, 1, action);
-    setActions(newActions);
-  }
-
-  let buttons = actions.map((action) => <ActionButton key={action.id} action={action} />);
-
   return (
     <Router>
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/remote" element={<Grid items={buttons} />} />
-          <Route path="/editor" element={<Editor actions={actions} setSingleAction={setSingleAction} />} />
+          <Route path="/remote" element={
+            <Grid>
+              {
+                actions.map((action) => <ActionButton key={action.id} action={action} />)
+              }
+            </Grid>
+          } />
+          <Route path="/editor" element={<Editor actions={actions} setActions={setActions} />} />
         </Routes>
       </div>
     </Router>
