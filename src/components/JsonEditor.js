@@ -2,12 +2,14 @@ import React from 'react';
 
 function JsonEditor(props) {
 
-    const textRef = React.createRef();
+    let textRef = React.createRef();
 
-    const objectText = JSON.stringify(props.object);
+    let objectText = JSON.stringify(props.object);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         props.setObject(JSON.parse(textRef.current.value));
+        console.log(textRef.current.value);
+        e.preventDefault();
     }
 
     return (
@@ -15,13 +17,13 @@ function JsonEditor(props) {
             <div className="row card-content">
                 <form onSubmit={handleSubmit} >
                     <div className="col s12 input-field">
-                        <textarea id="Objectjson" ref={textRef} value={objectText} className="materialize-textarea"></textarea>
-                        <label for="Objectjson"> {props.label}</label>
+                        <textarea id="object-json" ref={textRef} defaultValue={objectText} className="materialize-textarea"></textarea>
+                        <label htmlFor="object-json"> {props.label}</label>
                     </div>
+                    <button className="btn waves-effect" type="submit">
+                        Save <i className="material-icons right">save</i>
+                    </button>
                 </form>
-                <button class="btn waves-effect" type="submit">
-                    Save <i className="material-icons right">save</i>
-                </button>
             </div>
         </div>
     );
