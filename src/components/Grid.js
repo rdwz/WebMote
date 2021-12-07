@@ -2,7 +2,7 @@ import "./Grid.css";
 
 function Grid(props) {
     //hack for having indefinite rows
-    let rows = props.items.length;
+    let rows = props.children.length;
     let startingColumns = props.startingColumns ? props.startingColumns : 1;
     let style = {
         '--row-count': `${rows}`,
@@ -12,7 +12,7 @@ function Grid(props) {
     return (
         <div className="grid" style={style}>
             {
-                props.items.map(item => <>{item}</>)
+                props.children.map(child => <>{child}</>)
             }
         </div>
     );
