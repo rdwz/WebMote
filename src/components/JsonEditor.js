@@ -17,19 +17,24 @@ function JsonEditor(props) {
 
     return (
         <div className="card cyan lighten-5">
-            <div className="row card-content">
+            <div className="card-content">
                 <form onSubmit={saveObject} >
-                    <div className="col s12 input-field">
-                        <textarea id="object-json" ref={textRef} defaultValue={objectText} className="materialize-textarea"></textarea>
-                        <label htmlFor="object-json"> {props.label}</label>
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <textarea id="object-json" ref={textRef} defaultValue={objectText} className="materialize-textarea"></textarea>
+                            <label htmlFor="object-json"> {props.label}</label>
+                        </div>
                     </div>
-                    <button className="btn waves-effect" type="submit">
-                        Save <i className="material-icons right">save</i>
-                    </button>
                 </form>
-                <button className="btn waves-effect" onClick={deleteObject}>
+        
+                <button className="btn waves-effect" type="submit">
+                    Save <i className="material-icons right">save</i>
+                </button>
+
+                <button className="btn waves-effect right" onClick={deleteObject}>
                     Delete <i className="material-icons right">delete_forever</i>
                 </button>
+                      
             </div>
         </div>
     );
