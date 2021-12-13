@@ -7,7 +7,7 @@ let templateAction = {
     name: '',
     icon: 'send',
     newWindow: true,
-    templateLink: 'www.{name}.com',
+    templateLink: 'https://www.{name}.com',
     inserts: [
         {
             key: 'name',
