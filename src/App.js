@@ -1,3 +1,4 @@
+import Head from "./components/Head";
 import Remote from "./compositions/Remote";
 import { readActionsFromStore } from "./helpers/Actions";
 import { useEffect, useState } from "react";
@@ -20,7 +21,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Head title="WebMote" />
         <Routes>
           <Route path="/" exact element={<Remote actions={actions}/>} />
           <Route path="/editor" element={<Editor actions={actions} setActions={setActions} />} />
