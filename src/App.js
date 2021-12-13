@@ -8,10 +8,13 @@ import Editor from "./compositions/Editor";
 function App() {
   const [actions, setActions] = useState([]);
 
-  useEffect(async () => {
-    let newActions = await readActionsFromStore();
-    if(!newActions) {newActions = []}; 
-    setActions(newActions);
+  useEffect(() => {
+    const fetchActions = async () =>{
+      let newActions = await readActionsFromStore();
+      if(!newActions) {newActions = []}; 
+      setActions(newActions);
+    }
+    fetchActions();
   }, []);
 
 
