@@ -1,4 +1,3 @@
-import Nav from "./components/Nav";
 import Remote from "./compositions/Remote";
 import { readActionsFromStore } from "./helpers/Actions";
 import { useEffect, useState } from "react";
