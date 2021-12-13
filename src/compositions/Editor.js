@@ -7,7 +7,7 @@ function Editor(props) {
     
     const updateAction = action => {
         writeActionsToStore([action]);
-        props.setActions(props.actions.map(a => a.id == action.id ? action : a));
+        props.setActions(props.actions.map(a => a.id === action.id ? action : a));
     }
 
     const createAction = () => {
@@ -16,7 +16,7 @@ function Editor(props) {
 
     const deleteAction = action => {
         deleteActionsFromStore([action.id]);
-        props.setActions(props.actions.filter(a => a.id != action.id));
+        props.setActions(props.actions.filter(a => a.id !== action.id));
     }
     
     return (
