@@ -60,7 +60,7 @@ export const generateNewAction = function(){
 const parseLinkTemplate = function(template, inserts){
     let newLink = template;
     inserts.forEach(insert => {
-        let reg = new RegExp(`\{${insert.key}\}`);
+        let reg = new RegExp(`{${insert.key}}`);
         newLink = newLink.replace(reg, insert.value);
     });
     return newLink;
