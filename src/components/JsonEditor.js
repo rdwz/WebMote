@@ -25,15 +25,15 @@ function JsonEditor(props) {
                             <label htmlFor="object-json"> {props.label}</label>
                         </div>
                     </div>
+                    <button className="btn waves-effect" type="submit">
+                        Save <i className="material-icons right">save</i>
+                    </button>
+                    
+                    <button className="btn waves-effect right" onClick={deleteObject}>
+                        Delete <i className="material-icons right">delete_forever</i>
+                    </button>
                 </form>
-        
-                <button className="btn waves-effect" type="submit">
-                    Save <i className="material-icons right">save</i>
-                </button>
 
-                <button className="btn waves-effect right" onClick={deleteObject}>
-                    Delete <i className="material-icons right">delete_forever</i>
-                </button>
                       
             </div>
         </div>
