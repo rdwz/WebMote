@@ -4,7 +4,7 @@ function JsonEditor(props) {
 
     let textRef = React.createRef();
 
-    let objectText = JSON.stringify(props.object);
+    let objectText = JSON.stringify(props.object, null, " ");
 
     const deleteObject = () => {
         props.deleteObject(props.object);
