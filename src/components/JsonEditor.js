@@ -1,35 +1,35 @@
 import React from 'react';
 
-function JsonEditor(props) {
+function JsonEditor({object, deleteObject, label, setObject}) {
 
     let textRef = React.createRef();
 
-    let objectText = JSON.stringify(props.object, null, " ");
+    let objectText = JSON.stringify(object, null, " ");
 
-    const deleteObject = () => {
-        props.deleteObject(props.object);
+    const deleteSelf = () => {
+        deleteObject(object);
     }
 
-    const saveObject = (e) => {
-        props.setObject(JSON.parse(textRef.current.value));
+    const saveSelf = (e) => {
+        setObject(JSON.parse(textRef.current.value));
         e.preventDefault();
     }
 
     return (
         <div className="card cyan lighten-5">
             <div className="card-content">
-                <form onSubmit={saveObject} >
+                <form onSubmit={saveSelf} >
                     <div className="row">
                         <div className="input-field col s12">
                             <textarea id="object-json" ref={textRef} defaultValue={objectText} className="materialize-textarea"></textarea>
-                            <label htmlFor="object-json"> {props.label}</label>
+                            <label htmlFor="object-json"> {label}</label>
                         </div>
                     </div>
                     <button className="btn waves-effect" type="submit">
                         Save <i className="material-icons right">save</i>
                     </button>
                     
-                    <button className="btn waves-effect right" onClick={deleteObject}>
+                    <button className="btn waves-effect right" onClick={deleteSelf}>
                         Delete <i className="material-icons right">delete_forever</i>
                     </button>
                 </form>

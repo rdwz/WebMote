@@ -3,27 +3,27 @@ import JsonEditor from '../components/JsonEditor';
 import { Link } from 'react-router-dom';
 import { generateNewAction, writeActionsToStore, deleteActionsFromStore} from '../helpers/Actions';
 
-function Editor(props) {
+function Editor({actions, setActions}) {
     
     const updateAction = action => {
         writeActionsToStore([action]);
-        props.setActions(props.actions.map(a => a.id === action.id ? action : a));
+        setActions(actions.map(a => a.id === action.id ? action : a));
     }
 
     const createAction = () => {
-        props.setActions([...props.actions, generateNewAction()]);
+        setActions([...actions, generateNewAction()]);
     }
 
     const deleteAction = action => {
         deleteActionsFromStore([action.id]);
-        props.setActions(props.actions.filter(a => a.id !== action.id));
+        setActions(actions.filter(a => a.id !== action.id));
     }
     
     return (
         <>
             <Grid>
                 {
-                    props.actions && props.actions.map(action => 
+                    actions && actions.map(action => 
                         (<JsonEditor key={action.id} object={action} setObject={updateAction} deleteObject={deleteAction} />))
                 }
             </Grid>
