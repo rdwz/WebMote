@@ -4,6 +4,7 @@ import { readActionsFromStore } from "./helpers/Actions";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Editor from "./compositions/Editor";
+import InfoPage from "./compositions/InfoPage";
 
 function App() {
   const [actions, setActions] = useState([]);
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Remote actions={actions}/>} />
           <Route path="/editor" element={<Editor actions={actions} setActions={setActions} />} />
+          <Route path="/info" element={<InfoPage/>} />
         </Routes>
       </div>
     </Router>

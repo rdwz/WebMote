@@ -5,7 +5,10 @@ function Head(props) {
     <>
       <nav>
           <div className="nav-wrapper cyan lighten-2">
-          <a href="/" className="brand-logo">{props.title}</a>
+           <a href="/" className="brand-logo center">{props.title}</a>
+           <div className="right extra-padding">
+             <a href="/info" className="material-icons">info</a>
+           </div>
           </div>
       </nav>
     </>
