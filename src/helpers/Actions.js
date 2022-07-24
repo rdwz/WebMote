@@ -1,6 +1,5 @@
 import { setMany, getMany, delMany, keys } from 'idb-keyval';
-
-let actionCount = 0;
+import { v4 as uuidv4 } from 'uuid';
 
 let templateAction = {
     id: 0,
@@ -53,8 +52,7 @@ export const deleteActionsFromStore = async function(keys){
 }
 
 export const generateNewAction = function(){
-    actionCount++;
-    return {...templateAction, id: actionCount};
+    return {...templateAction, id: uuidv4()};
 }
 
 const parseLinkTemplate = function(template, inserts){
