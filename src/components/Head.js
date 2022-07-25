@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function Head(props) {
 
@@ -6,9 +7,9 @@ function Head(props) {
       <nav>
           <div className="nav-wrapper cyan lighten-2">
            <a href="/" className="brand-logo center">{props.title}</a>
-           <div className="right extra-padding">
-             <a href="/info" className="material-icons">info</a>
-           </div>
+            <Link to="/info" className="right extra-padding">
+              <i href="/info" className="material-icons">info</i>
+            </Link>
           </div>
       </nav>
     </>
